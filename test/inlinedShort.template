@@ -1,0 +1,11 @@
+<?clj
+	(def theName "Soonog")
+	
+	(defn replaceAs
+		[input]
+		(clojure.string/replace input "a" "X")
+	)
+?>
+
+Hello <% theName %>, this is a simple template which should allow
+you to <% (replaceAs "see the basics how this might work some day") %>.
