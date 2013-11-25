@@ -29,7 +29,7 @@
 	(load-string group)
 	
 	;; Return the buffer.
-	(.toString buffer)
+	(clojure.string/replace (.toString buffer) "$" "\\$")
 )
 
 ;; Parses the match, but wraps it first with the echo function.
