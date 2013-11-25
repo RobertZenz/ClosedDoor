@@ -30,7 +30,7 @@ The template files ClosedDoor accepts are looking like this:
 
     <?clj
         ;; You can embed Clojure here now.
-        (defn yourVariable "Something")
+        (def yourVariable "Something")
     ?>
     This is a simple test file to show you <% something %>.
 
