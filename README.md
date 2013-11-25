@@ -65,9 +65,9 @@ Yields:
 
 Also if there only follows code, you can leave the tags open:
 
-   This is text.
+    This is text.
     <?clj
-        ;; Some code here
+       ;; Some code here
         
 
 Includes
