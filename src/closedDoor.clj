@@ -1,6 +1,6 @@
 ;; The default tags
 (def tagStart "<\\?clj")
-(def tagEnd "\\?>")
+(def tagEnd "(\\?>|\\Z)")
 
 ;; The shorthand echo tags.
 (def echoStart "<%")
