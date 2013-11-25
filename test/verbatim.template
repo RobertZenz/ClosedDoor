@@ -1,0 +1,15 @@
+<?clj
+	(def theName "
+		
+		Hello there fellow!
+		<html>
+			<cool>Pretty, yeah!</cool>
+		</html>
+		\"Still cool\"
+	
+	")
+?>
+
+After this line:
+<% theName %>
+Above this line.
