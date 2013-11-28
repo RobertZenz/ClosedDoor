@@ -72,7 +72,10 @@ Also if there only follows code, you can leave the tags open:
     This is text.
     <?clj
        ;; Some code here
-        
+
+The normal tags are processed first, the echo tags after it. The order
+of appereance in the file itself does not matter for this.
+
 
 Includes
 ========
