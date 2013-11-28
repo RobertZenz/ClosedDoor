@@ -62,15 +62,17 @@
 	)
 )
 
+(defn process
+	"Processes the given source."
+	[source]
+	(print (parse (slurp source))))
+
 
 ; The main function follows.
 (if (empty? *command-line-args*)
-	(print (parse (slurp *in*)))
+	(process *in*)
 	(doseq [arg *command-line-args*]
 		(if (= arg "-")
-			(print (parse (slurp *in*)))
-			(print (parse (slurp arg)))
-		)
-	)
-)	
+			(process *in*)
+			(process arg))))	
 
