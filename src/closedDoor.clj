@@ -56,7 +56,10 @@
 (if (empty? *command-line-args*)
 	(print (parse (slurp *in*)))
 	(doseq [arg *command-line-args*]
-		(print (parse (slurp arg)))
+		(if (= arg "-")
+			(print (parse (slurp *in*)))
+			(print (parse (slurp arg)))
+		)
 	)
 )	
 
