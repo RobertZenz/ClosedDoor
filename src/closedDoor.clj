@@ -44,7 +44,7 @@
 (defn processMatchEchoWrapped
 	"Process the given match, but wraps it first in the echo function."
 	[[match group]]
-	(parseMatch [match (str "(echo " group ")")]))
+	(processMatch [match (str "(echo " group ")")]))
 
 (defn parse
 	"Parses the given input and processes the matches. The long/normal tags
