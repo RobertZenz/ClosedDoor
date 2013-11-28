@@ -25,6 +25,10 @@ the processed content to stdout, like this:
 Or if no parameters are provided, it will read from stdin:
 
     cat FILE | clojure closedDoor.clj
+    
+Also if you pass - in it will read from stdin:
+
+    cat FILE | clojure closedDoor.clj FILE FILE - FILE
 
 The template files ClosedDoor accepts are looking like this:
 
