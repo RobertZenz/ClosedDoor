@@ -61,12 +61,9 @@
 		(clojure.string/replace
 			input
 			tag-pattern
-			process-match
-		)
+			process-match)
 		echo-pattern
-		process-match-echo-wrapped
-	)
-)
+		process-match-echo-wrapped))
 
 (defn process
 	"Processes the given source, which means that it reads everything from
