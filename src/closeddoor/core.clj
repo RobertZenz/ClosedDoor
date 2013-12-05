@@ -1,4 +1,8 @@
-(ns closeddoor.core)
+(ns closeddoor.core
+	(:gen-class :main true))
+
+(require 'clojure.string)
+
 
 (def tag-start
 	"The long/normal start tag."
@@ -36,9 +40,9 @@
 		"A small helper function to allow to echo things."
 		[string]
 		(.append buffer string))
-	
+
 	; Now load what the regex devliered to use.
-	(load-string group)
+	(load-string (str "(use 'closeddoor.core)" group))
 	
 	; Return the buffer.
 	(clojure.string/replace (.toString buffer) "$" "\\$"))
@@ -67,14 +71,17 @@
 (defn process
 	"Processes the given source."
 	[source]
-	(print (parse (slurp source))))
+	(spit *out* (parse (slurp source))))
 
 
-; The main function follows.
-(if (empty? *command-line-args*)
-	(process *in*)
-	(doseq [arg *command-line-args*]
-		(if (= arg "-")
-			(process *in*)
-			(process arg))))	
+
+(defn -main
+	"The main function which does everything."
+	[& args]
+	(if (empty? args)
+		(process *in*)
+		(doseq [arg args]
+			(if (= arg "-")
+				(process *in*)
+				(process arg)))))
 
