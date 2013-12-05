@@ -55,7 +55,7 @@
 (defn parse
 	"Parses the given input and processes the matches. The long/normal tags
 	are processd first, after that the short/echo tags. Order of appereance
-	does not matter."
+	does not matter, all normal tags are processed first."
 	[input]
 	(clojure.string/replace
 		(clojure.string/replace
@@ -69,7 +69,8 @@
 )
 
 (defn process
-	"Processes the given source."
+	"Processes the given source, which means that it reads everything from
+	the source with slurp, runs it thorugh parse and spits it out into *out*."
 	[source]
 	(spit *out* (parse (slurp source))))
 
