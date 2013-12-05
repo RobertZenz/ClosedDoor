@@ -54,7 +54,7 @@
 
 (defn parse
 	"Parses the given input and processes the matches. The long/normal tags
-	are processd first, after that the short/echo tags. Order of appereance
+	are processed first, after that the short/echo tags. Order of appereance
 	does not matter, all normal tags are processed first."
 	[input]
 	(clojure.string/replace
