@@ -1,4 +1,4 @@
-(ns closeddoor.cor)
+(ns closeddoor.core)
 
 (def tag-start
 	"The long/normal start tag."
