@@ -1,3 +1,5 @@
+(ns closeddoor.cor)
+
 (def tag-start
 	"The long/normal start tag."
 	"<\\?clj")
