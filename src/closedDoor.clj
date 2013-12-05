@@ -1,28 +1,28 @@
-(def tagStart
+(def tag-start
 	"The long/normal start tag."
 	"<\\?clj")
-(def tagEnd
+(def tag-end
 	"The long/normal end tag."
 	"(\\?>|\\Z)")
 
 
-(def echoStart
+(def echo-start
 	"The short/echo start tag."
 	"<%")
-(def echoEnd
+(def echo-end
 	"The short/echo end tag."
 	"%>")
 
 
-(def tagPattern
+(def tag-pattern
 	"The compiled pattern for the long/normal tags."
-	(re-pattern (str tagStart "((?s:.+?))" tagEnd)))
-(def echoPattern
+	(re-pattern (str tag-start "((?s:.+?))" tag-end)))
+(def echo-pattern
 	"The compiled pattern for the short/echo tags."
-	(re-pattern (str echoStart "((?s:.+?))" echoEnd)))
+	(re-pattern (str echo-start "((?s:.+?))" echo-end)))
 
 
-(defn processMatch
+(defn process-match
 	"Processes the given match, and returns the output of
 	the given match."
 	[[match group]]
@@ -41,10 +41,10 @@
 	; Return the buffer.
 	(clojure.string/replace (.toString buffer) "$" "\\$"))
 
-(defn processMatchEchoWrapped
+(defn process-match-echo-wrapped
 	"Process the given match, but wraps it first in the echo function."
 	[[match group]]
-	(processMatch [match (str "(echo " group ")")]))
+	(process-match [match (str "(echo " group ")")]))
 
 (defn parse
 	"Parses the given input and processes the matches. The long/normal tags
@@ -54,11 +54,11 @@
 	(clojure.string/replace
 		(clojure.string/replace
 			input
-			tagPattern
-			processMatch
+			tag-pattern
+			process-match
 		)
-		echoPattern
-		processMatchEchoWrapped
+		echo-pattern
+		process-match-echo-wrapped
 	)
 )
 
