@@ -53,9 +53,9 @@
 	(process-match [match (str "(echo " group ")")]))
 
 (defn parse
-	"Parses the given input and processes the matches. The long/normal tags
-	are processed first, after that the short/echo tags. Order of appearance
-	does not matter, all normal tags are processed first."
+	"Parses the given input, processes the matches and returns the result.
+	The long/normal tags are processed first, after that the short/echo tags.
+	Order of appearance does not matter, all normal tags are processed first."
 	[input]
 	(clojure.string/replace
 		(clojure.string/replace
@@ -67,7 +67,9 @@
 
 (defn process
 	"Processes the given source, which means that it reads everything from
-	the source with slurp, runs it through parse and spits it out into out."
+	the source with slurp, runs it through parse and spits it out into out.
+	
+	So (process input *out*) is basically shorthand for (spit *out* (parse input))."
 	[source out]
 	(spit out (parse (slurp source))))
 
