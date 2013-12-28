@@ -41,7 +41,7 @@
 		[string]
 		(.append buffer string))
 
-	; Now load what the regex devliered to use.
+	; Now load what the regex delivered to use.
 	(load-string (str "(use 'closeddoor.core)" group))
 	
 	; Return the buffer.
@@ -54,7 +54,7 @@
 
 (defn parse
 	"Parses the given input and processes the matches. The long/normal tags
-	are processed first, after that the short/echo tags. Order of appereance
+	are processed first, after that the short/echo tags. Order of appearance
 	does not matter, all normal tags are processed first."
 	[input]
 	(clojure.string/replace
@@ -67,7 +67,7 @@
 
 (defn process
 	"Processes the given source, which means that it reads everything from
-	the source with slurp, runs it thorugh parse and spits it out into out."
+	the source with slurp, runs it through parse and spits it out into out."
 	[source out]
 	(spit out (parse (slurp source))))
 
