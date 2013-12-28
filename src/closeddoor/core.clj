@@ -45,6 +45,8 @@
 	(load-string (str "(use 'closeddoor.core)" group))
 	
 	; Return the buffer.
+	; We're replacing the $ with an escaped version because this output
+	; is directly passed into string/replace.
 	(clojure.string/replace (.toString buffer) "$" "\\$"))
 
 (defn- process-match-echo-wrapped
