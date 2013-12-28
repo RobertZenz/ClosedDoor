@@ -28,7 +28,7 @@
 	(re-pattern (str echo-start "((?s:.+?))" echo-end)))
 
 
-(defn process-match
+(defn- process-match
 	"Processes the given match, and returns the output of
 	the given match."
 	[[match group]]
@@ -47,7 +47,7 @@
 	; Return the buffer.
 	(clojure.string/replace (.toString buffer) "$" "\\$"))
 
-(defn process-match-echo-wrapped
+(defn- process-match-echo-wrapped
 	"Process the given match, but wraps it first in the echo function."
 	[[match group]]
 	(process-match [match (str "(echo " group ")")]))
