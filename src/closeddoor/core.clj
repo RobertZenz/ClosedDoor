@@ -67,9 +67,9 @@
 
 (defn process
 	"Processes the given source, which means that it reads everything from
-	the source with slurp, runs it thorugh parse and spits it out into *out*."
-	[source]
-	(spit *out* (parse (slurp source))))
+	the source with slurp, runs it thorugh parse and spits it out into out."
+	[source out]
+	(spit out (parse (slurp source))))
 
 
 
@@ -77,9 +77,9 @@
 	"The main function which does everything."
 	[& args]
 	(if (empty? args)
-		(process *in*)
+		(process *in* *out*)
 		(doseq [arg args]
 			(if (= arg "-")
-				(process *in*)
-				(process arg)))))
+				(process *in* *out*)
+				(process arg *out*)))))
 
